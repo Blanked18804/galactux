@@ -33,6 +33,25 @@ function OurWork() {
         {tagId: '2', conetentImg: container9},
     ]
 
+    function filterTagClick(event){
+        const clickedTag = event.currentTarget;
+        const productCard = document.querySelectorAll(".productCard")
+
+        const tagId = clickedTag.getAttribute("data-tagnameid");
+        console.log(tagId);
+        productCard.forEach((card) => {
+            const cardId = card.getAttribute("data-cardid");
+            if (cardId === tagId || tagId === "1"){
+                card.classList.add("block");
+                card.classList.remove("hidden")
+            }
+            else {
+                card.classList.add("hidden");
+                card.classList.remove("block")
+            }
+        })
+    }
+
   return (
     <section className='px-12 flex flex-col gap-20 max-md:px-6'>
         <div className='flex flex-col gap-4 items-center'>
@@ -46,16 +65,16 @@ function OurWork() {
             <div className='bg-black p-4 border border-[#ffffff1a] rounded-full w-fit max-w-full flex gap-4 flex-wrap justify-center items-center'>
                 {tags.map((item, index) =>{ 
                     return(
-                        <span key={index} tagnameid={item.tagNameId} className={`filterTag ${ item.active ? "bg-main" : "bg-[#171717]"} b py-2 px-4 border border-[#ffffff1a] rounded-full text-regular max-md:text-regular-12`}>{item.tagName}</span>
+                        <button onClick={filterTagClick} key={index} data-tagnameid={item.tagNameId} className={`filterTag ${ item.active ? "bg-main" : "bg-[#171717]"} b py-2 px-4 border border-[#ffffff1a] rounded-full text-regular max-md:text-regular-12`}>{item.tagName}</button>
                     )
                 })}
             </div>
             <div className='grid grid-cols-3 gap-6 max-md:grid-cols-2'>
                 {cards.map((item, index) => {
                     return(
-                        <div key={index} tagid={item.tagId} className='productCard rounded-2xl overflow-hidden relative group'>
+                        <div key={index} data-cardid={item.tagId} className='productCard rounded-2xl overflow-hidden relative group'>
                             <img className='w-full object-cover group-hover:opacity-30 transition-all duration-300' src={item.conetentImg} alt="" />
-                            <Button customClass="absolute-center hidden duration-300 group-hover:flex" label="check now"/>
+                            <Button customClass="absolute-center hidden duration-300 group-hover:flex max-sm:group-hover:hidden" label="check now"/>
                         </div>
                     )
                 } )}

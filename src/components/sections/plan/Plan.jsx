@@ -19,7 +19,7 @@ function Plan() {
         <div className='p-12 mx-12 flex flex-col gap-6 bg-[#171717] border border-[#ffffff1a] rounded-xl max-md:mx-0 max-md:p-6'>
             <div className='flex justify-between items-center max-md:flex-col max-md:gap-4 max-md:items-start'>
                 <h2 className='text-bold-30 max-md:text-bold-22'>One Plan,<br />Endless Possibilities</h2>
-                <span className='flex gap-4 items-center'>
+                <span className='flex gap-4 items-center max-md:flex-col max-md:items-start'>
                     <h2 className="text-bold-16">Monthly</h2>
                     <ToggleBtn active={true} />
                     <h2 className="text-bold-16">Yearly (-20% Save)</h2>

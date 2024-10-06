@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import SectionName from '../../reuse/SectionName'
 import DiscoverGridCarrd from './reuse/DiscoverGridCarrd'
 import gridBg from './assets/grid-bg.png'
@@ -6,24 +6,25 @@ import galactuxWhite from './assets/galactux-white.svg'
 
 function Discover() {
 
+
   useEffect(() => {
     heightCalc();
-    window.addEventListener('reset', heightCalc())
+    window.addEventListener('resize', heightCalc);
 
     return () => {
       window.removeEventListener('resize', heightCalc);
     };
-  },[] );
+  }, []);
 
-  function heightCalc(){
-    const galactuxGridWidth = document.querySelector("#galactux-grid").offsetWidth;
+  function heightCalc() {
+    const galactuxGridWidth = document.querySelector("#galactux-grid")?.offsetWidth || 0;
     const galactuxGridCircles = document.querySelectorAll(".galactux-grid-circle");
-    let galactuxGridCirclesWidth = galactuxGridWidth + 200;
-    galactuxGridCircles.forEach((circle)=>{
-      circle.style.width = `${galactuxGridCirclesWidth}px`
-      circle.style.height = `${galactuxGridCirclesWidth}px`  
-      console.log("u changed the screen size")
-    })
+    const newWidth = galactuxGridWidth + 200;
+
+    galactuxGridCircles.forEach((circle) => {
+      circle.style.width = `${newWidth}px`;
+      circle.style.height = `${newWidth}px`;
+    });
   }
 
   let gridBoxStyle = "bg-[#171717] border border-[#ffffff1a] rounded-[10px] overflow-hidden"

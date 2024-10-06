@@ -35,18 +35,18 @@ function Footer() {
                 <div className='flex gap-8 max-md:flex-col max-md:gap-4'>
                     <span>
                         <p className='text-regular'>Phone</p>
-                        <h2 className='text-bold-22'>+991 - 763 684 4563</h2>
+                        <h2 className='text-bold-22 max-md:text-bold-16'>+991 - 763 684 4563</h2>
                     </span>
                     <Line vertical={true} customClass="hidden"/>
                     <span>
                         <p className='text-regular'>Email Now</p>
-                        <h2 className='text-bold-22'>info@examplegmail.com</h2>
+                        <h2 className='text-bold-22 max-md:text-bold-16'>info@examplegmail.com</h2>
                     </span>
                 </div>
             </div>
-            <div className='flex justify-between max-md:flex-col gap-4 items-center'>
-                <p className='text-regular'>Copyright 2024 Galactux | Design By Galactux</p>
-                <p className='text-regular'>Our Business <span className='underline'>Policy, Terms & Condition</span></p>
+            <div className='flex justify-between max-md:flex-col max-md:text-center gap-4 items-center'>
+                <p className='text-regular max-md:text-regular-12'>Copyright 2024 Galactux | Design By Galactux</p>
+                <p className='text-regular max-md:text-regular-12'>Our Business <span className='underline'>Policy, Terms & Condition</span></p>
             </div>
         </footer>
     </section>
