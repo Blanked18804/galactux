@@ -3,14 +3,14 @@ import testimonyGuy from '../assets/testimony.png'
 import digiArt from '../assets/digi-art.png'
 import TestimonyResult from './TestimonyResult'
 
-function TestimonyCard() {
+function TestimonyCard({customClass, style}) {
 
 
 
   return (
-    <div className='flex gap-16 items-center max-md:flex-col'>
-        <div className='w-[40%] rounded-xl overflow-hidden max-md:w-full'>
-            <img className='w-full object-cover' src={testimonyGuy} alt="" />
+    <div className={`flex gap-16 items-center max-md:flex-col ${customClass} shrink-0`} style={style}>
+        <div className='w-[40%] h-full rounded-xl overflow-hidden max-md:w-full max-h-[500px]'>
+            <img className='w-full h-full object-cover' src={testimonyGuy} alt="" />
         </div>
         <div className='w-[60%] flex flex-col gap-8 max-md:w-full'>
             <div className='flex flex-col gap-4'>
